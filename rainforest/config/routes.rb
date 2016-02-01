@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  resources :products
+
+
+
+
+  # get 'products/index'
+  #
+  # get 'products/show'
+  #
+  # get 'products/create'
+  #
+  # get 'products/new'
+  #
+  # get 'products/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

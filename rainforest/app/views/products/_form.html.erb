@@ -1,0 +1,28 @@
+<%= form_for @product do |p| %>
+  <% if @product.errors.any?  %>
+   <h3><%= pluralize(@product.errors.count, "error") %> prevented this action from being taken! </h3>
+      <% @product.errors.full_messages.each do |msg| %>
+        <ol>
+          <li>
+            <%= msg %>
+          </li>
+        </ol>
+      <% end %>
+  <% end %>
+
+
+
+  <div class="field">
+    <strong><%= p.label :name %></strong><br>
+    <p><%= p.text_field :name %></p>
+    <strong><%= p.label :description %></strong><br>
+    <p><%= p.text_field :description %></p>
+    <strong><%= p.label :price_in_cent %></strong><br>
+    <p><%= p.number_field :price_in_cent %></p>
+    <strong><%= p.label :url %></strong><br>
+    <p><%= p.text_field :url %></p>
+
+  </div>
+  <%= p.submit %>
+
+<% end %>
