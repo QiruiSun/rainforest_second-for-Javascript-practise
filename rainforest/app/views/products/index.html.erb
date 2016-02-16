@@ -2,16 +2,12 @@
 <!-- <p>Find me in app/views/products/index.html.erb</p> -->
 
 <h3><%= link_to "Add one", new_product_path %></h3>
-<ol>
-  <% @products.each do |p| %>
-    <li>
-      <div class="list_products_names">
-        <strong> <%= p.name %> :</strong>
-      </div>
-      <div class="products_detail">
-        <%= link_to image_tag(p.url), product_path(p.id) %> <br>
-        <p> <%= link_to "Details", product_path(p.id) %></p>
-      </div>
-    </li>
-  <% end %>
-</ol>
+
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div id="products">
+  <%= render @products %>
+</div>

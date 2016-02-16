@@ -3,14 +3,23 @@ class ProductsController < ApplicationController
   before_action :find_product, only: [:show, :destroy, :edit, :update]
 
   def index
-    @products = Product.all
+    @products = if params[:search]
+      Product.where('LOWER(name) LIKE ?', "%#{params[:search]}%")
+    else
+      Product.all
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
     if current_user
       @review = @product.review.build
     end
-    
+
 
   end
 

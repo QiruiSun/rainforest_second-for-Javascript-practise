@@ -1,0 +1,13 @@
+<ol>
+<%= link_to product_path(product.id) do %>
+    <li>
+      <div class="list_products_names">
+        <strong> <%= product.name %> :</strong>
+      </div>
+      <div class="products_detail">
+        <%= image_tag(product.url) %> <br>
+        <p> <%=  "Details" %></p>
+      </div>
+    </li>
+<% end %>
+</ol>
