@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   has_many :users, through: :reviews
   has_many :reviews
 
-  validates :name, :description, :url, presence: true
+  validates :name, :description, presence: true
   validates :price_in_cent, numericality: {integer_only: true}
 
   def formatted_price
