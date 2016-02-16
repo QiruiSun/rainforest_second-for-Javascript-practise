@@ -1,5 +1,34 @@
 Rails.application.routes.draw do
-  resources :products
+
+
+  # get 'reviews/show'
+  #
+  # get 'reviews/create'
+  #
+  # get 'reviews/destroy'
+
+
+
+  get 'login' => 'sessions#new'
+  get 'logout' => 'sessions#destroy'
+  resources :sessions, only: [:create]
+  # get 'sessions/new'
+  #
+  # get 'sessions/create'
+  #
+  # get 'sessions/destroy'
+
+  resources :users, only: [:new, :create, :show]
+  # get 'users/new'
+  #
+  # get 'users/create'
+  #
+  # get 'users/show'
+
+  resources :products do
+    resources :reviews, only: [:show, :create, :destroy]
+
+  end
 
 
 

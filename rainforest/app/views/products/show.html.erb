@@ -12,7 +12,29 @@
 
     <div class="products_detail">
       <p> Description : <%= @product.description  %></p>
-      <p> Price : <%= @product.price_in_cent %></p>
+      <p> Price : <%= @product.formatted_price %> ($)</p>
       <p> <%= link_to "Put it into the cart", product_path(@product.id) %></p>
     </div>
     <p><%= link_to "Edit", edit_product_path(@product) %> | <%= link_to "Delete", product_path(@product), method: :delete %></p>
+
+  <h3>Reviews</h3>
+     <p>Reviews for <%= @product.name %></p>
+
+     <% @product.reviews.each do |review| %>
+       <p>
+         <%= review.comment %>
+         <br>
+         <% if review.user != nil %>
+           <em> by <%= review.user.email %></em>
+           Added on: <%= review.created_at %>
+         <% end %>
+       </p>
+     <% end %>
+  <% if current_user %>
+    <h4>New Review</h4>
+    <%= form_for [@product, @review] do |f|  %>
+      <% if  @review.errors.any? %>
+
+      <% end %>
+    <% end %>
+  <% end %>

@@ -7,6 +7,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    if current_user
+      @review = @product.review.build
+    end
+    
 
   end
 
@@ -34,7 +38,7 @@ class ProductsController < ApplicationController
     if @product.update_attributes(product_params)
       redirect_to product_path(@product)
     else
-      render :edit#code
+      render :edit
     end
 
   end
