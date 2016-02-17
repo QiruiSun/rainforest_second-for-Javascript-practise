@@ -1,0 +1,11 @@
+<% if @review.errors.present? %>
+  $(".review-form-errors").html("<%=j  render partial: '/products/review_form_errors' %>");
+<% else %>
+  $('.review-form-errors').html("");  // needs to clear the errors area!
+  $('#review-list').html("<%= j render partial: 'products/reviews'  %>");
+  $('#new_review')[0].reset();  //reset the typein box
+<% end %>
+
+
+// alert("I am responding!");
+// $('.comment').prepend(<p> + "<%= j @review.comment %>" + </p>);

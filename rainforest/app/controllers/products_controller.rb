@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 
   def show
     if current_user
-      @review = @product.review.build
+      @review = @product.reviews.build
     end
 
 
