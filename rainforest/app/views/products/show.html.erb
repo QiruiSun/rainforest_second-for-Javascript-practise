@@ -43,18 +43,20 @@
   <script type="text/javascript">
     $(function() {
       $('.new_review')
-        .on('ajax::beforeSend', function() {
+        .on('ajax:beforeSend', function() {
           $('input[type = "submit"]')
             .val("Saving...")
             .attr('disabled', 'disabled');
             console.log("Saving!");
         })
-        .on('ajax::complete', function() {
+        .on('ajax:complete', function() {
           $('input[type = "submit"]')
             .val("Add Review")
             .removeAttr('disabled');
             console.log("Saving!");
-        });
-    })
+            $("div.review:last-child").css({color:"red"});
+        })
+    });
+
 
   </script>

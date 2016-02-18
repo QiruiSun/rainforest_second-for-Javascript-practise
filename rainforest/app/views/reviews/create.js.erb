@@ -3,7 +3,9 @@
 <% else %>
   $('.review-form-errors').html("");  // needs to clear the errors area!
   $('#review-list').append("<%= j render partial: 'new_review' %>");
+  // $("div.review:last-child").css({background-color:"blue"});
   $('#new_review')[0].reset();  //reset the typein box
+  
 <% end %>
 
 
