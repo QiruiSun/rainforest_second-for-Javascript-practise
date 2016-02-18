@@ -1,0 +1,11 @@
+<div class="review">
+ <div class="comment">
+  <%= @review.comment %>
+ </div>
+  <% if @review.user != nil %>
+    <div class="poster">
+      <em> by <%= @review.user.email %></em>
+      Added on: <%= @review.created_at %>
+    </div>
+  <% end %>
+</div>
