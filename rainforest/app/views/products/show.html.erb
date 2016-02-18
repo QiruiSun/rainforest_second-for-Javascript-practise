@@ -54,8 +54,22 @@
             .val("Add Review")
             .removeAttr('disabled');
             console.log("Saving!");
-            $("div.review:last-child").css({color:"red"});
-        })
+          $("div.review:last-child").css({color:"red"})
+          $("div.review:last-child")[0].scrollIntoView({
+            block: "end",
+            behavior: "smooth" // why slow doesnt work seems
+          });
+          //
+          // $("div.review:last-child").scroll(function() {
+          //   var offset = $("this").offset();
+          //   $('html, body').animate({
+          //     scrollTop: offset.top,
+          //     scrollLeft: offset.left
+          //   });
+          // })
+          // $("div.review:last-child").scroll();
+            // why the css style applied will be gone when refreshing the page?
+        });
     });
 
 
